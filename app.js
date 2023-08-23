@@ -10,7 +10,15 @@ const PORT = 4002;
 
 // middleware
 app.use(express.json());
-app.use(cors());
+//define cors
+app.use(
+  cors({
+    origin: ["http://localhost:3000", "https://otp-mt3n.onrender.com"], // Add more origins as needed
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true, // If your frontend sends cookies or credentials
+  })
+);
+
 app.use(router);
 
 
